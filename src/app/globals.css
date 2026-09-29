@@ -2,11 +2,11 @@
 
 :root {
   /* Brand Primary Colors */
-  --primary: #0052FF;
-  --primary-hover: #0043D4;
-  --primary-dark: #0036A8;
+  --primary: #003BE2;
+  --primary-hover: #0032C4;
+  --primary-dark: #0028A0;
   --primary-light: #EFF4FF;
-  --primary-glow: rgba(0, 82, 255, 0.15);
+  --primary-glow: rgba(0, 59, 226, 0.15);
 
   /* Accent Lime/Yellow Colors */
   --accent: #CDFF00;
