@@ -18,7 +18,7 @@ export default function Brands() {
   ];
 
   return (
-    <section className="w-full bg-white border-b border-border py-8 sm:py-12">
+    <section className="w-full bg-[#f5f5f5] py-6 sm:py-10">
       <Container>
         <div className="flex flex-wrap items-center justify-center sm:justify-between gap-6 sm:gap-10 opacity-70 grayscale hover:grayscale-0 transition-all duration-300">
           {brands.map((brand, idx) => (

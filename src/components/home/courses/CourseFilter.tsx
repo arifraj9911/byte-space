@@ -31,8 +31,8 @@ export default function CourseFilter({
             onClick={() => handleSelect(filter)}
             className={`rounded-full px-4 py-1.5 text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer ${
               isActive
-                ? "bg-accent text-secondary font-semibold shadow-sm scale-105"
-                : "bg-white text-muted hover:text-secondary hover:border-gray-400 border border-border"
+                ? "bg-accent text-secondary font-medium shadow-sm scale-105"
+                : "bg-gray-100 text-muted hover:text-secondary hover:border-gray-400 border border-border"
             }`}
           >
             {filter}
