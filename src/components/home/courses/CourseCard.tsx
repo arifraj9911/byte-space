@@ -13,11 +13,23 @@ const courseAvatars = [Review2, Skill1, Review1, Review3];
 export interface CourseCardProps {
   course: CourseItem;
   imageSrc?: string | any;
+  className?: string;
+  hoverEffect?: boolean;
 }
 
-export default function CourseCard({ course, imageSrc }: CourseCardProps) {
+export default function CourseCard({
+  course,
+  imageSrc,
+  className = "",
+  hoverEffect = true,
+}: CourseCardProps) {
   return (
-    <Card className="flex flex-col h-full bg-white rounded-2xl border border-gray-200/80 p-3.5 sm:p-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+    <Card
+      hoverEffect={hoverEffect}
+      className={`flex flex-col h-full bg-white rounded-2xl border border-gray-200/80 p-3.5 sm:p-4 transition-all duration-300 ${
+        hoverEffect ? "hover:shadow-lg hover:-translate-y-0.5" : ""
+      } ${className}`}
+    >
       {/* Thumbnail (lessons, hours, comments are baked inside the SVG image) */}
       <div className="relative w-full aspect-[341/196] rounded-xl overflow-hidden bg-gray-100 mb-3.5">
         {imageSrc ? (
@@ -40,13 +52,13 @@ export default function CourseCard({ course, imageSrc }: CourseCardProps) {
         {/* Title & Rating */}
         <div className="flex items-start justify-between gap-2 mb-1">
           <h3
-            className="font-bold text-secondary text-[16px] leading-snug truncate hover:text-primary transition-colors flex-1"
+            className="font-medium text-secondary text-[16px] leading-snug truncate hover:text-primary transition-colors flex-1"
             title={course.title}
           >
             {course.title}
           </h3>
 
-          <div className="flex items-center gap-1 text-sm font-normal text-gray-400 shrink-0">
+          <div className="flex items-center gap-1 text-sm font-light text-gray-400 shrink-0">
             <span>{course.rating ? course.rating.toFixed(1) : "4.5"}</span>
             <svg
               className="w-3.5 h-3.5 text-gray-300 fill-current"
@@ -58,7 +70,7 @@ export default function CourseCard({ course, imageSrc }: CourseCardProps) {
         </div>
 
         {/* Studio / Author */}
-        <p className="text-xs text-gray-400 font-normal mb-3.5">
+        <p className="text-xs text-gray-400 font-light mb-3.5">
           by{" "}
           <span className="text-primary font-medium cursor-pointer hover:underline">
             {course.instructor || "purepearl studio"}
@@ -68,7 +80,7 @@ export default function CourseCard({ course, imageSrc }: CourseCardProps) {
         {/* Level & Enrolled Avatars */}
         <div className="flex items-center justify-start mt-auto mb-3 gap-2">
           {/* Level Pill */}
-          <div className="inline-flex items-center gap-1.5 bg-gray-100/90 rounded-full px-2.5 py-1 text-xs text-gray-600 font-normal">
+          <div className="inline-flex items-center gap-1.5 bg-gray-100/90 rounded-full px-2.5 py-1 text-xs text-gray-600 font-light">
             <svg
               className="w-3 h-3 text-gray-500 fill-current"
               viewBox="0 0 24 24"
@@ -96,7 +108,7 @@ export default function CourseCard({ course, imageSrc }: CourseCardProps) {
                 />
               </div>
             ))}
-            <div className="relative w-6 h-6 rounded-full bg-accent text-secondary font-bold ring-[1.5px] ring-white flex items-center justify-center shrink-0 text-[9px]">
+            <div className="relative w-6 h-6 rounded-full bg-accent text-secondary font-medium ring-[1.5px] ring-white flex items-center justify-center shrink-0 text-[9px]">
               <span>{course.enrolledStudentsCount || "26+"}</span>
             </div>
           </div>
@@ -104,10 +116,10 @@ export default function CourseCard({ course, imageSrc }: CourseCardProps) {
 
         {/* Price */}
         <div className="flex items-baseline gap-0.5">
-          <span className="text-lg font-bold text-primary">
+          <span className="text-lg font-medium text-primary">
             ${course.price}
           </span>
-          <span className="text-xs text-gray-400 font-normal">
+          <span className="text-xs text-gray-400 font-light">
             /{course.billingPeriod}
           </span>
         </div>

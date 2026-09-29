@@ -1,37 +1,52 @@
 import React from "react";
 import Image from "next/image";
 import Container from "@/components/ui/Container";
-import { GROWTH_STATS } from "@/data/landingData";
+import { GROWTH_STATS, COURSES_DATA } from "@/data/landingData";
 import { LearningProgressCard } from "../hero/HeroFloatingCards";
-import Card from "@/components/ui/Card";
+import CourseCard from "../courses/CourseCard";
 
 import BannerMan from "@/assets/images/hero/banner_man.svg";
-import CircleColored from "@/assets/images/circle_colored.svg";
+import CurveRight from "@/assets/images/hero/curve_right.svg";
 import Skill1 from "@/assets/images/skills/skill_img1.svg";
 
 export default function GrowthStats() {
   return (
-    <section className="w-full bg-white py-16 sm:py-24 overflow-hidden">
-      <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+    <section
+      className="relative w-full py-16 sm:py-24 overflow-hidden"
+      style={{
+        background: `
+          radial-gradient(ellipse 750px 420px at 40% -8%, rgba(212, 251, 32, 0.48) 0%, rgba(212, 251, 32, 0.16) 52%, transparent 80%),
+          radial-gradient(ellipse 550px 480px at -6% 52%, rgba(195, 220, 255, 0.55) 0%, rgba(195, 220, 255, 0.12) 55%, transparent 78%),
+          radial-gradient(ellipse 500px 420px at 98% 12%, rgba(210, 228, 255, 0.45) 0%, rgba(210, 228, 255, 0.08) 55%, transparent 75%),
+          #FFFFFF
+        `,
+      }}
+    >
+      <Container className="relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           {/* Left Column: Heading, Copy, and Stats */}
           <div className="lg:col-span-5 flex flex-col">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-secondary tracking-tight leading-tight">
-              Your Path to Professional Growth Starts Here!
+            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-medium text-secondary tracking-tight leading-[1.2] max-w-lg">
+              <span className="block">Your Path to Professional</span>
+              <span>Growth Starts Here!</span>
             </h2>
 
-            <p className="mt-5 text-sm sm:text-base text-muted font-normal leading-relaxed">
-              Explore our curated selection of courses tailored to enhance your capabilities and accelerate your career journey. Whether you are looking to sharpen specific skills, gain industry expertise, or embark on a new career path entirely, we have the resources you need.
+            <p className="mt-6 text-sm sm:text-[15px] text-muted font-light leading-relaxed max-w-md">
+              Explore our curated selection of courses tailored to enhance your
+              capabilities and accelerate your career journey. Whether you are
+              looking to sharpen specific skills, gain industry expertise, or
+              embark on a new career path entirely, we have the resources you
+              need.
             </p>
 
             {/* 3 Stats Counters */}
-            <div className="grid grid-cols-3 gap-6 mt-10 pt-8 border-t border-gray-100">
+            <div className="flex items-center gap-10 sm:gap-14 mt-10">
               {GROWTH_STATS.map((stat, idx) => (
                 <div key={idx} className="flex flex-col">
-                  <div className="text-3xl sm:text-4xl font-extrabold text-primary">
+                  <div className="text-3xl sm:text-4xl font-medium text-primary tracking-tight">
                     {stat.value}
                   </div>
-                  <div className="text-xs sm:text-sm text-secondary font-medium mt-1">
+                  <div className="text-sm font-light text-muted mt-1.5">
                     {stat.label}
                   </div>
                 </div>
@@ -40,49 +55,44 @@ export default function GrowthStats() {
           </div>
 
           {/* Right Column: Visual Composition with Student & Floating Badges */}
-          <div className="lg:col-span-7 relative flex items-center justify-center">
-            {/* Decorative Spiral / Ring Ribbon */}
-            <div className="absolute -top-10 -right-4 sm:-right-8 w-40 sm:w-56 opacity-90 pointer-events-none -z-0">
-              <Image
-                src={CircleColored}
-                alt="decorative ribbon"
-                className="w-full h-auto"
-              />
-            </div>
+          <div className="lg:col-span-7 relative flex items-center justify-center lg:justify-end">
+            {/* Unified Visual Cluster */}
+            <div className="relative w-full max-w-[460px] sm:max-w-[490px] lg:max-w-[510px] select-none">
+              {/* Decorative Lime Spring (CurveRight) */}
+              <div className="absolute top-[8%] sm:top-[14%] right-0 w-28 sm:w-32 md:w-40 z-[9999] pointer-events-none">
+                <Image
+                  src={CurveRight}
+                  alt="decorative lime curve"
+                  className="w-full h-auto drop-shadow-md"
+                />
+              </div>
 
-            {/* Main Character Image */}
-            <div className="relative z-10 w-full max-w-md sm:max-w-lg">
-              <Image
-                src={BannerMan}
-                alt="Professional student learning"
-                width={500}
-                height={500}
-                className="w-full h-auto object-contain"
-              />
-            </div>
+              {/* Top-Left Course Card (Behind Student) */}
+              <div className="absolute top-0 left-0 z-[1] w-[62%] sm:w-[60%] max-w-[290px] shadow-2xl shadow-black/8 pointer-events-none">
+                <CourseCard
+                  course={COURSES_DATA[0]}
+                  imageSrc={Skill1}
+                  hoverEffect={false}
+                  className="border-slate-100"
+                />
+              </div>
 
-            {/* Floating Mini Course Card (Left) */}
-            <div className="absolute bottom-6 -left-2 sm:left-4 z-20 w-48 sm:w-56 shadow-2xl">
-              <Card className="p-2.5 sm:p-3 bg-white/95 backdrop-blur-md rounded-xl border border-white">
-                <div className="relative w-full aspect-[16/10] rounded-lg overflow-hidden mb-2">
-                  <Image src={Skill1} alt="Figma course preview" fill className="object-cover" />
-                  <div className="absolute bottom-1 left-1 flex gap-1 text-[8px] text-white bg-black/60 px-1.5 py-0.5 rounded-full">
-                    <span>17 Lessons</span>
-                    <span>2h 16m</span>
-                  </div>
-                </div>
-                <div className="text-xs font-bold text-secondary truncate">Learn Figma from...</div>
-                <div className="text-[10px] text-muted mb-1">by purepearl studio</div>
-                <div className="flex items-center justify-between text-[11px] pt-1 border-t border-gray-100">
-                  <span className="text-muted text-[10px]">Beginner</span>
-                  <span className="font-bold text-primary">$25<span className="text-[9px] text-muted font-normal">/lifetime</span></span>
-                </div>
-              </Card>
-            </div>
+              {/* Middle-Right Learning Progress Card (Behind Laptop) */}
+              <div className="absolute top-[43%] sm:top-[45%] right-[1%] sm:right-[3%] z-[2] shadow-2xl shadow-black/8 pointer-events-none z-[999]">
+                <LearningProgressCard className="border border-white/80" />
+              </div>
 
-            {/* Floating Progress Card (Right) */}
-            <div className="absolute top-1/4 -right-2 sm:right-4 z-20 shadow-2xl">
-              <LearningProgressCard />
+              {/* Foreground Student Image */}
+              <div className="relative z-10 w-[84%] sm:w-[95%] max-w-[450px] ml-[10%] sm:ml-[9%] mt-11 sm:mt-12">
+                <Image
+                  src={BannerMan}
+                  alt="Professional student learning"
+                  width={722}
+                  height={515}
+                  priority
+                  className="w-full h-auto object-contain drop-shadow-2xl"
+                />
+              </div>
             </div>
           </div>
         </div>
