@@ -12,8 +12,17 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="w-full bg-primary text-white border-b border-white/10 relative z-30">
-      <Container>
+    <header className="relative w-full bg-primary text-white z-30">
+      {/* Background Grid Pattern matching Hero */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0.22) 1.5px, transparent 1.5px),
+                            linear-gradient(to bottom, rgba(255, 255, 255, 0.22) 1.5px, transparent 1.5px)`,
+          backgroundSize: "85px 85px",
+        }}
+      />
+      <Container className="relative z-10">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 transition-transform hover:scale-105">
@@ -22,7 +31,7 @@ export default function Header() {
               alt="ByteSpace Logo"
               width={140}
               height={36}
-              className="h-8 w-auto brightness-0 invert"
+              className="h-8 w-auto"
               priority
             />
           </Link>
