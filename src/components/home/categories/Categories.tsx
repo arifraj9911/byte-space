@@ -21,7 +21,7 @@ export default function Categories() {
   ];
 
   return (
-    <section className="w-full bg-white py-8 sm:py-10">
+    <section className="w-full bg-white py-8 sm:pt-6 sm:pb-20">
       <Container>
         <SectionHeading
           title="Explore Diverse Learning Paths at Bytespace"
