@@ -15,6 +15,8 @@ export const metadata: Metadata = {
   keywords: ["online courses", "ByteSpace", "learning", "Figma", "UI/UX", "development", "creators"],
 };
 
+import ScrollToTop from "@/components/ui/ScrollToTop";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -24,6 +26,7 @@ export default function RootLayout({
     <html lang="en" className={`${poppins.variable} font-sans`}>
       <body className="min-h-screen flex flex-col font-sans bg-background text-foreground antialiased selection:bg-accent selection:text-secondary">
         {children}
+        <ScrollToTop />
       </body>
     </html>
   );
