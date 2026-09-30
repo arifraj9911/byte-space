@@ -12,7 +12,7 @@ import Skill1 from "@/assets/images/skills/skill_img1.svg";
 export default function GrowthStats() {
   return (
     <section
-      className="relative w-full py-16 sm:py-24 overflow-hidden"
+      className="relative w-full py-12 sm:pt-24 sm:pb-16 overflow-hidden"
       style={{
         background: `
           radial-gradient(ellipse 750px 420px at 40% -8%, rgba(212, 251, 32, 0.48) 0%, rgba(212, 251, 32, 0.16) 52%, transparent 80%),

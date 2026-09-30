@@ -10,7 +10,7 @@ import CurveLeft from "@/assets/images/hero/curve_left.svg";
 export default function CourseManagement() {
   return (
     <section
-      className="relative w-full py-16 sm:py-24 overflow-hidden"
+      className="relative w-full py-12 sm:py-16 overflow-hidden"
       style={{
         background: `
           radial-gradient(ellipse 750px 600px at -5% 92%, rgba(212, 251, 32, 0.85) 0%, rgba(226, 251, 122, 0.65) 28%, rgba(236, 249, 181, 0.3) 55%, transparent 75%),
@@ -27,7 +27,7 @@ export default function CourseManagement() {
             {/* Unified Visual Cluster */}
             <div className="relative w-full max-w-[480px] sm:max-w-[520px] lg:max-w-[540px] select-none">
               {/* Floating Revenue Badge 1 (Top Left, Behind Instructor: z-0) */}
-              <div className="absolute top-4 sm:top-5 left-0 z-0 w-[155px] sm:w-[172px] bg-[#003BE2] text-white p-3.5 sm:p-4 rounded-2xl shadow-xl shadow-blue-900/25 border border-white/20 backdrop-blur-sm pointer-events-none">
+              <div className="absolute top-4 sm:top-5 left-0 z-0 w-[155px] sm:w-[272px] bg-[#003BE2] text-white p-3.5 sm:p-4 rounded-2xl shadow-xl shadow-blue-900/25 border border-white/20 backdrop-blur-sm pointer-events-none">
                 <div className="text-[11px] sm:text-xs font-light text-white/90">
                   Total Revenue
                 </div>
@@ -61,7 +61,7 @@ export default function CourseManagement() {
               </div>
 
               {/* Decorative Lime Spring Curve (CurveLeft, Right of Instructor: z-0) */}
-              <div className="absolute top-[22%] sm:top-[24%] right-[2%] sm:right-[4%] lg:right-[5%] w-32 sm:w-36 md:w-40 lg:w-44 z-0 pointer-events-none">
+              <div className="absolute top-[22%] sm:top-[24%] right-[2%] sm:right-[4%] lg:right-[5%] w-32 sm:w-36 md:w-40 lg:w-44 z-50 pointer-events-none">
                 <Image
                   src={CurveLeft}
                   alt="decorative lime curve"
