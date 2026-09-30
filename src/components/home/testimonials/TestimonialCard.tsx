@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import Card from "@/components/ui/Card";
 import { TestimonialItem } from "@/types";
 
 export interface TestimonialCardProps {
@@ -12,32 +11,36 @@ export default function TestimonialCard({
   testimonial,
   avatarSrc,
 }: TestimonialCardProps) {
+  const quoteText = testimonial.quote.startsWith('"')
+    ? testimonial.quote
+    : `"${testimonial.quote}"`;
+
   return (
-    <Card className="flex flex-col p-6 sm:p-8 bg-white/95 backdrop-blur rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 h-full">
-      {/* User profile */}
-      <div className="flex items-center gap-3.5 mb-5">
-        <div className="relative w-12 h-12 rounded-full overflow-hidden bg-gray-100 ring-2 ring-primary/10">
-          <Image
-            src={avatarSrc}
-            alt={testimonial.name}
-            fill
-            className="object-cover"
-          />
-        </div>
-        <div>
-          <h4 className="font-bold text-secondary text-base leading-tight">
-            {testimonial.name}
-          </h4>
-          <span className="text-xs font-semibold text-primary">
-            {testimonial.role}
-          </span>
-        </div>
+    <div className="flex flex-col items-start p-7 sm:p-8 lg:p-9 bg-white rounded-[26px] sm:rounded-[30px] border border-gray-100/60 shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_18px_40px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 h-full">
+      {/* 1. Avatar - Top Left Circle */}
+      <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden shrink-0 mb-6">
+        <Image
+          src={avatarSrc}
+          alt={testimonial.name}
+          fill
+          className="object-cover"
+        />
       </div>
 
-      {/* Quote */}
-      <p className="text-xs sm:text-sm text-secondary-muted font-normal leading-relaxed flex-grow">
-        {testimonial.quote}
+      {/* 2. User Name */}
+      <h3 className="font-bold text-secondary text-base sm:text-lg tracking-tight leading-tight">
+        {testimonial.name}
+      </h3>
+
+      {/* 3. User Role */}
+      <span className="text-sm font-normal text-primary mt-1 mb-6">
+        {testimonial.role}
+      </span>
+
+      {/* 4. Quote */}
+      <p className="text-xs sm:text-sm text-[#4B5563] font-normal leading-[1.65] flex-grow">
+        {quoteText}
       </p>
-    </Card>
+    </div>
   );
 }

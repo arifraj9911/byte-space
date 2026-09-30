@@ -20,7 +20,7 @@ export default function CourseShowcase() {
   const [activeFilter, setActiveFilter] = useState("Featured");
 
   return (
-    <section className="w-full bg-white py-16 sm:py-24">
+    <section className="w-full bg-white py-12 sm:py-20">
       <Container>
         <SectionHeading
           title="Discover Your Passion, Build Your Skills"

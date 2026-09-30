@@ -16,7 +16,7 @@ export function UiUxCard({ className = "" }: { className?: string }) {
       <div className="text-xs sm:text-sm font-medium text-secondary whitespace-nowrap">
         UI/UX Design
       </div>
-      <div className="text-[10px] sm:text-xs text-muted mt-0.5 whitespace-nowrap">
+      <div className="text-[10px] sm:text-xs text-muted font-light mt-0.5 whitespace-nowrap">
         200 Courses • 1000+ Students
       </div>
     </div>
@@ -32,7 +32,7 @@ export function LearningProgressCard({
     <div
       className={`bg-white rounded-2xl shadow-xl p-4 sm:p-5 border border-white/80 min-w-[170px] sm:min-w-[195px] backdrop-blur-sm ${className}`}
     >
-      <div className="text-xs text-muted font-medium mb-1 whitespace-nowrap">
+      <div className="text-xs text-muted font-light mb-1 whitespace-nowrap">
         Learning Progress
       </div>
       <div className="text-2xl sm:text-3xl font-medium text-secondary mb-2">
@@ -54,10 +54,10 @@ export function HappyStudentsCard({ className = "" }: { className?: string }) {
         Happy Students
       </div>
       <div className="flex items-center gap-1.5 mb-2.5">
-        <span className="text-sm font-semibold text-[#0F172A] leading-none">
+        <span className="text-sm font-medium text-[#0F172A] leading-none">
           4.5
         </span>
-        <span className="text-sm font-normal text-[#64748B] leading-none">
+        <span className="text-sm font-light text-[#64748B] leading-none">
           (240)
         </span>
         <svg
@@ -85,7 +85,7 @@ export function HappyStudentsCard({ className = "" }: { className?: string }) {
         ))}
         <div
           style={{ zIndex: 0 }}
-          className="relative w-8 h-8 rounded-full bg-accent text-black font-bold ring-[1.5px] ring-white flex items-center justify-center flex-shrink-0 text-[11px] pl-1.5"
+          className="relative w-8 h-8 rounded-full bg-accent text-black font-medium ring-[1.5px] ring-white flex items-center justify-center flex-shrink-0 text-[11px] pl-1.5"
         >
           <span>2K+</span>
         </div>

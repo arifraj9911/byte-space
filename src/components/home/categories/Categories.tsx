@@ -21,7 +21,7 @@ export default function Categories() {
   ];
 
   return (
-    <section className="w-full bg-white py-14 sm:py-20">
+    <section className="w-full bg-white py-8 sm:pt-6 sm:pb-20">
       <Container>
         <SectionHeading
           title="Explore Diverse Learning Paths at Bytespace"
@@ -31,11 +31,7 @@ export default function Categories() {
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 mt-10 sm:mt-12">
           {categories.map((cat, idx) => (
-            <CategoryCard
-              key={idx}
-              name={cat.name}
-              iconSrc={cat.icon}
-            />
+            <CategoryCard key={idx} name={cat.name} iconSrc={cat.icon} />
           ))}
         </div>
       </Container>
