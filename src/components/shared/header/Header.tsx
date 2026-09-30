@@ -59,13 +59,15 @@ export default function Header() {
             >
               Sign In
             </Link>
-            <Button
-              variant="accent"
-              size="sm"
-              className="rounded-full px-5 py-2 text-xs font-semibold"
-            >
-              Join Us
-            </Button>
+            <Link href="/signup">
+              <Button
+                variant="accent"
+                size="sm"
+                className="rounded-full px-5 py-2 text-xs font-semibold"
+              >
+                Join Us
+              </Button>
+            </Link>
             <button
               aria-label="Shopping Cart"
               className="p-2 text-white/90 hover:text-white transition-colors relative hover:scale-110"
@@ -145,9 +147,11 @@ export default function Header() {
               >
                 Sign In
               </Link>
-              <Button variant="accent" size="sm" className="w-full">
-                Join Us
-              </Button>
+              <Link href="/signup" className="w-full" onClick={() => setMobileMenuOpen(false)}>
+                <Button variant="accent" size="sm" className="w-full">
+                  Join Us
+                </Button>
+              </Link>
             </div>
           </div>
         )}
