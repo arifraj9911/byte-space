@@ -1,0 +1,123 @@
+"use client";
+
+import React, { useState } from "react";
+import Link from "next/link";
+import Input from "@/components/ui/Input";
+import Button from "@/components/ui/Button";
+import SocialAuthButtons from "./SocialAuthButtons";
+
+export default function SignInForm() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert(`Signed in with ${email}`);
+  };
+
+  return (
+    <div className="w-full max-w-lg bg-white rounded-[32px] sm:rounded-[36px] p-7 sm:p-9 md:p-11 shadow-2xl border border-white/60">
+      {/* Top Small Label */}
+      <span className="text-xs sm:text-sm font-medium text-primary block mb-1">
+        Sign In
+      </span>
+
+      {/* Main Heading */}
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary tracking-tight leading-tight mb-7 sm:mb-8">
+        Welcome Back
+      </h2>
+
+      {/* Sign In Form */}
+      <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+        <Input
+          label="Email"
+          type="email"
+          placeholder="designer@example.com"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+
+        <Input
+          label="Password"
+          type={showPassword ? "text" : "password"}
+          placeholder="********"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          endAdornment={
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="p-1 text-gray-400 hover:text-secondary focus:outline-none transition-colors cursor-pointer"
+              aria-label={showPassword ? "Hide password" : "Show password"}
+              tabIndex={-1}
+            >
+              {showPassword ? (
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                </svg>
+              )}
+            </button>
+          }
+        />
+
+        {/* Right-aligned Sign In Pill Button */}
+        <div className="flex justify-end pt-2">
+          <Button
+            type="submit"
+            variant="accent"
+            size="md"
+            className="rounded-full px-8 py-3 text-sm font-semibold text-secondary hover:bg-accent-hover"
+          >
+            Sign In
+          </Button>
+        </div>
+      </form>
+
+      {/* Social login buttons (Facebook & Google) */}
+      <SocialAuthButtons />
+
+      {/* Bottom Registration Link */}
+      <div className="mt-8 text-center text-xs sm:text-sm text-gray-500 font-normal">
+        New user?{" "}
+        <Link
+          href="/signup"
+          className="text-primary font-semibold hover:underline transition-colors"
+        >
+          Create an account
+        </Link>
+      </div>
+    </div>
+  );
+}
